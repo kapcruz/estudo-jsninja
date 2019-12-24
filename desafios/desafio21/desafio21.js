@@ -14,33 +14,28 @@
 	usar o nome que achar melhor, desde que ele seja semântico, ou seja, o nome
 	dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
 	*/
-		var $startButton = doc.querySelector('[data-js="start-button"]');
-		var $stopButton = doc.querySelector('[data-js="stop-button"]');
-		var $resetButton = doc.querySelector('[data-js="reset-button"]');
-		var $chronometer = doc.querySelector('[data-js="chronometer"]');
-		var chronometerId;
-	
-		function timer () {
-			$chronometer.value++;
-			chronometerId = setTimeout(timer, 1000);
-		}
-	
-		function timerStop () {
-			clearTimeout(chronometerId);
-		}
-	
-		$startButton.addEventListener('click', function () {
-			timer();
-		}, false);
-	
-		$stopButton.addEventListener('click', function () {
-			timerStop();
-		}, false);
-	
-		$resetButton.addEventListener('click', function () {
-			timerStop();
-			$chronometer.value = 0;
-		}, false);
-	
+	var $startButton = doc.querySelector('[data-js="start-button"]');
+	var $stopButton = doc.querySelector('[data-js="stop-button"]');
+	var $resetButton = doc.querySelector('[data-js="reset-button"]');
+	var $chronometer = doc.querySelector('[data-js="chronometer"]');
+	var chronometerId;
+
+	function timer () {
+		($chronometer.value)++;
+		chronometerId = setTimeout(timer, 1000);
+	}
+
+	$startButton.addEventListener('click', function () {
+		timer();
+	}, false);
+
+	$stopButton.addEventListener('click', function () {
+		clearTimeout(chronometerId);
+	})
+
+	$resetButton.addEventListener('click', function () {
+		$chronometer.value = 0;
+	})
+
 	
 })(window, document);
